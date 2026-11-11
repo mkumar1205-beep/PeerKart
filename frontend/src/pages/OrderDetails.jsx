@@ -23,7 +23,9 @@ const OrderDetails = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login", { replace: true });

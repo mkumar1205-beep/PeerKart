@@ -580,9 +580,9 @@ function Marketplace() {
                 Verified Campus Marketplace
               </div>
 
-              <h1 className="text-4xl font-black tracking-[-0.045em] text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
-                Find what you need.
-                <span className="block text-blue-600 dark:text-blue-400">
+              <h1 className="text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+                Find what you need.{" "}
+                <span className="block mt-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent">
                   Sell what you don't.
                 </span>
               </h1>
@@ -601,7 +601,7 @@ function Marketplace() {
 
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-blue-600 dark:text-blue-400">
-                    CampusMart AI
+                    PeerKart AI
                   </p>
 
                   <p className="mt-1 text-sm font-bold text-slate-800 dark:text-slate-100">
@@ -659,7 +659,7 @@ function Marketplace() {
                 type="button"
                 onClick={handleAISearch}
                 disabled={aiSearchLoading || !search.trim()}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-blue-200 transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-500 dark:shadow-blue-950/30"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-blue-500/25 transition hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {aiSearchLoading ?
                   <>
@@ -719,7 +719,7 @@ function Marketplace() {
                     />
 
                     <h3 className="text-sm font-black text-slate-900 dark:text-white">
-                      CampusMart AI understood your request
+                      PeerKart AI understood your request
                     </h3>
                   </div>
 

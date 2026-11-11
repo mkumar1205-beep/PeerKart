@@ -11,10 +11,16 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const adminToken = localStorage.getItem("campusmart_admin_token");
-    const studentToken = localStorage.getItem("campusmart_token");
+    const adminToken =
+      localStorage.getItem("peerkart_admin_token") ||
+      localStorage.getItem("campusmart_admin_token");
+    const studentToken =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
-    const adminUserRaw = localStorage.getItem("campusmart_admin_user");
+    const adminUserRaw =
+      localStorage.getItem("peerkart_admin_user") ||
+      localStorage.getItem("campusmart_admin_user");
 
     let adminUser = null;
 

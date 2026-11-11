@@ -19,7 +19,9 @@ const Chat = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login", { replace: true });
@@ -119,7 +121,9 @@ const Chat = () => {
 
   const getOtherParticipant = (conversation) => {
     const currentUser = JSON.parse(
-      localStorage.getItem("campusmart_user") || "{}",
+      localStorage.getItem("peerkart_user") ||
+      localStorage.getItem("campusmart_user") ||
+      "{}",
     );
 
     return conversation.participants?.find(
@@ -161,7 +165,7 @@ const Chat = () => {
               <h1 className="text-2xl font-bold text-slate-900">Messages</h1>
 
               <p className="text-sm text-slate-500">
-                Chat with buyers and sellers on CampusMart.
+                Chat with buyers and sellers on PeerKart.
               </p>
             </div>
           </div>
@@ -295,7 +299,9 @@ const Chat = () => {
                     </div>
                   : messages.map((message) => {
                       const currentUser = JSON.parse(
-                        localStorage.getItem("campusmart_user") || "{}",
+                        localStorage.getItem("peerkart_user") ||
+                        localStorage.getItem("campusmart_user") ||
+                        "{}",
                       );
 
                       const mine = message.sender?._id === currentUser._id;

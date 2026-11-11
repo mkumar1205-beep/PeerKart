@@ -156,7 +156,7 @@ const Notifications = () => {
                 </h1>
 
                 <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Stay updated with your CampusMart activity.
+                  Stay updated with your PeerKart activity.
                 </p>
               </div>
             </div>

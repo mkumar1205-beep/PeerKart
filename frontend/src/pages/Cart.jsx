@@ -29,7 +29,9 @@ function Cart() {
       setLoading(true);
       setError("");
 
-      const token = localStorage.getItem("campusmart_token");
+      const token =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
       if (!token) {
         navigate("/login");
@@ -43,8 +45,10 @@ function Cart() {
       console.error("Cart Error:", error);
 
       if (error.response?.status === 401) {
+        localStorage.removeItem("peerkart_token");
         localStorage.removeItem("campusmart_token");
 
+        localStorage.removeItem("peerkart_user");
         localStorage.removeItem("campusmart_user");
 
         navigate("/login");
@@ -372,7 +376,7 @@ function Cart() {
                   <ShieldCheck size={20} className="shrink-0 text-green-600" />
 
                   <p className="text-xs leading-5 text-green-700">
-                    CampusMart keeps your transactions within the verified
+                    PeerKart keeps your transactions within the verified
                     student marketplace.
                   </p>
                 </div>

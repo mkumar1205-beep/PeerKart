@@ -12,7 +12,9 @@ const Wishlist = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login", { replace: true });
@@ -34,7 +36,9 @@ const Wishlist = () => {
       console.error("Wishlist Error:", err);
 
       if (err.response?.status === 401) {
+        localStorage.removeItem("peerkart_token");
         localStorage.removeItem("campusmart_token");
+        localStorage.removeItem("peerkart_user");
         localStorage.removeItem("campusmart_user");
 
         navigate("/login", { replace: true });

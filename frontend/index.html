@@ -8,7 +8,9 @@
   <script>
     (() => {
       const theme =
-        localStorage.getItem("campusmart_theme") || "light";
+        localStorage.getItem("peerkart_theme") ||
+        localStorage.getItem("campusmart_theme") ||
+        "light";
 
       document.documentElement.classList.add(theme);
     })();
@@ -18,8 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>
-    
-    𝖢𝗮𝗺𝗽𝘂𝘀𝑀𝑎𝐫𝐭 ᴀɪ | Our Campus. Your Marketplace.
+    PeerKart | Our Campus. Your Marketplace.
   </title>
 </head>
 

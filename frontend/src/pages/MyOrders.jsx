@@ -18,7 +18,9 @@ const MyOrders = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login", { replace: true });
@@ -96,7 +98,7 @@ const MyOrders = () => {
               <h1 className="text-2xl font-bold text-slate-900">My Orders</h1>
 
               <p className="text-sm text-slate-500">
-                Track your CampusMart purchases.
+                Track your PeerKart purchases.
               </p>
             </div>
           </div>

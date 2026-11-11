@@ -37,7 +37,10 @@ function Login() {
   // =========================================================
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("campusmart_theme") || "light";
+    const savedTheme =
+      localStorage.getItem("peerkart_theme") ||
+      localStorage.getItem("campusmart_theme") ||
+      "light";
 
     document.documentElement.classList.remove("light", "dark");
 
@@ -110,16 +113,20 @@ function Login() {
       // CLEAR ADMIN SESSION
       // ======================================================
 
+      localStorage.removeItem("peerkart_admin_token");
       localStorage.removeItem("campusmart_admin_token");
 
+      localStorage.removeItem("peerkart_admin_user");
       localStorage.removeItem("campusmart_admin_user");
 
       // ======================================================
       // SAVE STUDENT SESSION
       // ======================================================
 
+      localStorage.setItem("peerkart_token", token);
       localStorage.setItem("campusmart_token", token);
 
+      localStorage.setItem("peerkart_user", JSON.stringify(user));
       localStorage.setItem("campusmart_user", JSON.stringify(user));
 
       // ======================================================
@@ -156,20 +163,24 @@ function Login() {
 
           <div className="mb-7 flex justify-center">
             <Link to="/" className="group inline-flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 shadow-lg shadow-blue-100 transition group-hover:-translate-y-0.5 dark:shadow-blue-950/40">
-                <ShoppingBag size={23} className="text-white" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 text-white shadow-lg shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
+                <ShoppingBag size={22} className="transition-transform group-hover:-rotate-6" />
+                <div className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 ring-2 ring-white dark:ring-slate-950">
+                  <Sparkles size={9} className="text-slate-950" />
+                </div>
               </div>
 
-              <div>
-                <p className="text-xl font-black tracking-tight text-slate-950 dark:text-white">
-                  Campus
-                  <span className="text-blue-600 dark:text-blue-400">Mart</span>
-                  <span className="ml-1 text-xs text-indigo-500 dark:text-indigo-400">
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 leading-none">
+                  <span className="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
+                    Peer<span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">Kart</span>
+                  </span>
+                  <span className="rounded-md border border-cyan-400/30 bg-cyan-400/10 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                     AI
                   </span>
-                </p>
+                </div>
 
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+                <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">
                   Campus Marketplace
                 </p>
               </div>
@@ -191,7 +202,7 @@ function Login() {
               </p>
 
               <h1 className="mt-2 text-2xl font-black tracking-tight text-slate-950 dark:text-white">
-                Sign in to CampusMart
+                Sign in to PeerKart
               </h1>
 
               <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500 dark:text-slate-400">

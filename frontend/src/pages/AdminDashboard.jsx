@@ -130,7 +130,7 @@ export default function AdminDashboard() {
             <h1>Admin Dashboard</h1>
 
             <p>
-              Monitor marketplace activity, orders, listings and CampusMart
+              Monitor marketplace activity, orders, listings and PeerKart
               safety from one place.
             </p>
           </div>

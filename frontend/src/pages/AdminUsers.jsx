@@ -290,7 +290,7 @@ function AdminUsers() {
             </div>
 
             <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-              Manage CampusMart student accounts, verification and account
+              Manage PeerKart student accounts, verification and account
               status.
             </p>
           </div>
@@ -571,7 +571,7 @@ function AdminUsers() {
                     </h2>
 
                     <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                      Review and manage this CampusMart account.
+                      Review and manage this PeerKart account.
                     </p>
                   </div>
                 </div>

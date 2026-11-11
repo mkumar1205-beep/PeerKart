@@ -82,7 +82,9 @@ const Checkout = () => {
   ========================================================= */
 
   useEffect(() => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login", {
@@ -104,7 +106,9 @@ const Checkout = () => {
       setLoading(true);
       setError("");
 
-      const token = localStorage.getItem("campusmart_token");
+      const token =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
       if (!token) {
         navigate("/login", {
@@ -135,8 +139,10 @@ const Checkout = () => {
       console.error("Checkout Cart Error:", err);
 
       if (err.response?.status === 401) {
+        localStorage.removeItem("peerkart_token");
         localStorage.removeItem("campusmart_token");
 
+        localStorage.removeItem("peerkart_user");
         localStorage.removeItem("campusmart_user");
 
         navigate("/login", {
@@ -297,7 +303,7 @@ const Checkout = () => {
     const campusMartOrderId = campusMartOrder?._id;
 
     if (!campusMartOrderId) {
-      throw new Error("CampusMart order ID was not returned.");
+      throw new Error("PeerKart order ID was not returned.");
     }
 
     /* =====================================================
@@ -323,7 +329,11 @@ const Checkout = () => {
     let userData = {};
 
     try {
-      userData = JSON.parse(localStorage.getItem("campusmart_user") || "{}");
+      userData = JSON.parse(
+        localStorage.getItem("peerkart_user") ||
+        localStorage.getItem("campusmart_user") ||
+        "{}",
+      );
     } catch {
       userData = {};
     }
@@ -339,9 +349,9 @@ const Checkout = () => {
 
       currency: paymentData.currency || "INR",
 
-      name: "CampusMart",
+      name: "PeerKart",
 
-      description: `CampusMart Order ${campusMartOrder?.orderNumber || ""}`,
+      description: `PeerKart Order ${campusMartOrder?.orderNumber || ""}`,
 
       order_id: paymentData.orderId,
 
@@ -354,6 +364,7 @@ const Checkout = () => {
       },
 
       notes: {
+        peerkart_order_id: String(campusMartOrderId),
         campusmart_order_id: String(campusMartOrderId),
       },
 
@@ -910,7 +921,7 @@ const Checkout = () => {
               />
 
               <p className="text-xs leading-5 text-slate-500 dark:text-slate-400">
-                Payment verification is handled securely on the CampusMart
+                Payment verification is handled securely on the PeerKart
                 server.
               </p>
             </div>

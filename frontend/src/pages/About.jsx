@@ -13,7 +13,7 @@ const teamMembers = [
   {
     name: "Jeet Mondal",
     role: "Team Leader · Full Stack Developer",
-    bio: "Leading the project and working on building the CampusMart AI experience.",
+    bio: "Leading the project and working on building the PeerKart experience.",
     image: "/images/team/Jeet.png",
     github: "https://github.com/JEETJM",
     linkedin: "https://www.linkedin.com/in/jm1904/",
@@ -186,7 +186,7 @@ export default function About() {
           {/* Top Badge */}
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-1.5 text-xs font-light tracking-widest uppercase text-cyan-300 backdrop-blur-sm">
             <Sparkles size={14} className="animate-pulse" />
-            Meet the people behind CampusMart AI
+            Meet the people behind PeerKart
           </div>
 
           {/* Main Heading with Light & Stylish Typography */}
@@ -316,7 +316,7 @@ export default function About() {
                        bg-white px-6 py-3 font-bold text-slate-950
                        transition hover:bg-cyan-100"
           >
-            Visit CampusMart AI <ArrowRight size={18} />
+            Visit PeerKart <ArrowRight size={18} />
           </Link>
         </div>
       </section>

@@ -67,9 +67,13 @@ function EditProfile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const studentToken = localStorage.getItem("campusmart_token");
+      const studentToken =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
-      const adminToken = localStorage.getItem("campusmart_admin_token");
+      const adminToken =
+        localStorage.getItem("peerkart_admin_token") ||
+        localStorage.getItem("campusmart_admin_token");
 
       const selectedToken = isAdminProfileEdit ? adminToken : studentToken;
 
@@ -147,22 +151,31 @@ function EditProfile() {
 
         if (isAdminProfileEdit) {
           localStorage.setItem(
+            "peerkart_admin_user",
+            JSON.stringify(currentUser),
+          );
+          localStorage.setItem(
             "campusmart_admin_user",
             JSON.stringify(currentUser),
           );
         } else {
+          localStorage.setItem("peerkart_user", JSON.stringify(currentUser));
           localStorage.setItem("campusmart_user", JSON.stringify(currentUser));
         }
       } catch (err) {
         console.error("Edit Profile Load Error:", err);
 
         if (isAdminProfileEdit) {
+          localStorage.removeItem("peerkart_admin_token");
           localStorage.removeItem("campusmart_admin_token");
 
+          localStorage.removeItem("peerkart_admin_user");
           localStorage.removeItem("campusmart_admin_user");
         } else {
+          localStorage.removeItem("peerkart_token");
           localStorage.removeItem("campusmart_token");
 
+          localStorage.removeItem("peerkart_user");
           localStorage.removeItem("campusmart_user");
         }
 
@@ -361,10 +374,15 @@ function EditProfile() {
 
       if (isAdminProfileEdit) {
         localStorage.setItem(
+          "peerkart_admin_user",
+          JSON.stringify(updatedUser),
+        );
+        localStorage.setItem(
           "campusmart_admin_user",
           JSON.stringify(updatedUser),
         );
       } else {
+        localStorage.setItem("peerkart_user", JSON.stringify(updatedUser));
         localStorage.setItem("campusmart_user", JSON.stringify(updatedUser));
       }
 
@@ -454,7 +472,7 @@ function EditProfile() {
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400">
             {isAdminProfileEdit ?
-              "Update your CampusMart administrator profile and account information."
+              "Update your PeerKart administrator profile and account information."
             : "Update your student identity, profile image, and campus location."
             }
           </p>
@@ -529,8 +547,8 @@ function EditProfile() {
 
                 <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                   {isAdminProfileEdit ?
-                    "CampusMart Administrator"
-                  : "CampusMart Student"}
+                    "PeerKart Administrator"
+                  : "PeerKart Student"}
                 </p>
 
                 {user.isVerified && (
@@ -607,7 +625,7 @@ function EditProfile() {
               </h2>
 
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                Keep your CampusMart profile accurate.
+                Keep your PeerKart profile accurate.
               </p>
             </div>
 

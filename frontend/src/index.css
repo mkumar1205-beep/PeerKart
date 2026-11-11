@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* =========================================================
-   CAMPUSMART GLOBAL THEME
+   PEERKART GLOBAL THEME
 ========================================================= */
 
 :root {
@@ -583,7 +583,7 @@ a {
 }
 
 /* =========================================================
-   CAMPUSMART ADMIN DASHBOARD
+   PEERKART ADMIN DASHBOARD
    Full Custom Styling
 ========================================================= */
 
@@ -1629,3 +1629,119 @@ html.dark .admin-login-mobile-link:hover {
     font-size: 11px;
   }
 }
+
+/* =========================================================
+   PEERKART MODERN DESIGN SYSTEM ADDITIONS
+========================================================= */
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 7s ease-in-out 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.gradient-text-peerkart {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 45%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .gradient-text-peerkart {
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 45%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-nav-blur {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.peerkart-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.peerkart-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -12px rgba(37, 99, 235, 0.16);
+}
+
+html.dark .peerkart-card-hover:hover {
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.5);
+}
+
+.peerkart-badge-glow {
+  box-shadow: 0 0 20px -2px rgba(59, 130, 246, 0.35);
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.5);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
+

@@ -2,134 +2,159 @@ import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   BrainCircuit,
-  // Github,
   Heart,
   ShieldCheck,
   ShoppingBag,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative overflow-hidden border-t border-slate-200/80 bg-white text-slate-900 dark:border-slate-800/80 dark:bg-slate-950 dark:text-slate-100">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute -bottom-32 left-1/2 h-80 w-[600px] -translate-x-1/2 rounded-full bg-blue-500/5 blur-3xl dark:bg-blue-600/10" />
+
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* BRAND */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-2">
-              <div className="rounded-xl bg-blue-600 p-2 text-white">
-                <ShoppingBag size={21} />
+            <Link to="/" className="group inline-flex items-center gap-3">
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 text-white shadow-lg shadow-blue-500/25 transition-transform duration-300 group-hover:scale-105">
+                <ShoppingBag size={21} className="transition-transform group-hover:-rotate-6" />
+                <div className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 ring-2 ring-white dark:ring-slate-950">
+                  <Sparkles size={9} className="text-slate-950" />
+                </div>
               </div>
 
-              <div>
-                <h2 className="text-xl font-bold text-slate-900">
-                  Campus<span className="text-blue-600">Mart</span>
-                  <span className="ml-1.5 text-xs text-indigo-500">AI</span>
-                </h2>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 leading-none">
+                  <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+                    Peer<span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">Kart</span>
+                  </span>
+                  <span className="rounded-md border border-cyan-400/30 bg-cyan-400/10 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+                    AI
+                  </span>
+                </div>
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">
+                  Campus Marketplace
+                </span>
               </div>
             </Link>
 
-            <p className="mt-4 max-w-md text-sm leading-7 text-slate-500">
-              An AI-powered student-to-student marketplace where students can
-              buy, sell, exchange and rent products within their campus
-              community.
+            <p className="mt-4 max-w-md text-sm leading-7 text-slate-600 dark:text-slate-400">
+              The next-generation campus commerce hub. Buy, sell, exchange and rent
+              products with student-verified trust and AI-assisted pricing guidance.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 rounded-xl bg-green-50 px-3 py-2 text-xs font-semibold text-green-700">
-                <ShieldCheck size={15} />
-                Verified Students
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1.5 text-xs font-bold text-emerald-700 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Verified Student Platform
               </div>
 
-              <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-700">
-                <BrainCircuit size={15} />
-                AI Powered
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50/80 px-3 py-1.5 text-xs font-bold text-blue-700 dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-400">
+                <BrainCircuit size={13} />
+                AI Price Engine
               </div>
             </div>
           </div>
 
           {/* MARKETPLACE */}
           <div>
-            <h3 className="font-semibold text-slate-900">Marketplace</h3>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 dark:text-white">
+              Marketplace
+            </h3>
 
-            <ul className="mt-4 space-y-3 text-sm text-slate-500">
+            <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-400">
               <li>
-                <Link
-                  to="/marketplace"
-                  className="transition hover:text-blue-600"
-                >
-                  Buy Products
+                <Link to="/marketplace" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  Explore Listings
                 </Link>
               </li>
-
               <li>
-                <Link to="/register" className="transition hover:text-blue-600">
-                  Sell Products
+                <Link to="/sell" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  List an Item
                 </Link>
               </li>
-
               <li>
-                <Link
-                  to="/marketplace"
-                  className="transition hover:text-blue-600"
-                >
-                  Exchange
+                <Link to="/ai-exchange-matcher" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  AI Exchange Matcher
                 </Link>
               </li>
-
               <li>
-                <Link
-                  to="/marketplace"
-                  className="transition hover:text-blue-600"
-                >
-                  Rent
+                <Link to="/my-rentals" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  Campus Rentals
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* PROJECT */}
+          {/* FEATURES */}
           <div>
-            <h3 className="font-semibold text-slate-900">CampusMart AI</h3>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 dark:text-white">
+              AI Tools
+            </h3>
 
-            <ul className="mt-4 space-y-3 text-sm text-slate-500">
+            <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-center gap-2">
-                <BrainCircuit size={15} />
-                AI Smart Finder
+                <Sparkles size={14} className="text-cyan-500" />
+                Smart Product Finder
               </li>
-
               <li className="flex items-center gap-2">
-                <ShieldCheck size={15} />
-                AI Scam Detection
+                <Zap size={14} className="text-amber-500" />
+                Fair Price Predictor
               </li>
-
               <li className="flex items-center gap-2">
-                <ShoppingBag size={15} />
-                Student Commerce
+                <ShieldCheck size={14} className="text-emerald-500" />
+                Scam Risk Indicator
               </li>
+              <li className="flex items-center gap-2">
+                <BrainCircuit size={14} className="text-indigo-500" />
+                Buy-vs-Rent Advisor
+              </li>
+            </ul>
+          </div>
 
+          {/* COMMUNITY */}
+          <div>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900 dark:text-white">
+              Community
+            </h3>
+
+            <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <li>
+                <Link to="/about" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  About PeerKart
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin/login" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  Campus Admin
+                </Link>
+              </li>
               <li>
                 <a
                   href="https://github.com/JEETJM/CampusMart"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 transition hover:text-blue-600"
+                  className="inline-flex items-center gap-1.5 transition hover:text-blue-600 dark:hover:text-blue-400"
                 >
-                  GitHub
-                  <ArrowUpRight size={14} />
+                  GitHub Repository
+                  <ArrowUpRight size={13} />
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-slate-200/80 pt-6 text-xs text-slate-500 dark:border-slate-800/80 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} CampusMart AI. All rights reserved.
+            © {new Date().getFullYear()} PeerKart. All rights reserved. Built for student campuses.
           </p>
 
-          <p className="flex items-center gap-1">
-            Built for students with
-            <span className="font-semibold text-red-500">JASI❤️</span>
+          <p className="flex items-center gap-1.5 font-medium">
+            Designed with <Heart size={13} className="fill-red-500 text-red-500" /> for the student community
           </p>
         </div>
       </div>

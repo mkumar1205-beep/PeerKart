@@ -146,7 +146,9 @@ function SellProduct() {
   // =========================================================
 
   const handleAiFairPrice = async () => {
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login");
@@ -240,7 +242,9 @@ function SellProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("campusmart_token");
+    const token =
+      localStorage.getItem("peerkart_token") ||
+      localStorage.getItem("campusmart_token");
 
     if (!token) {
       navigate("/login");
@@ -569,7 +573,7 @@ function SellProduct() {
 
                         <p className="mt-1 text-sm leading-6 text-slate-600">
                           Get an estimated fair price using your product details
-                          and similar CampusMart listings.
+                          and similar PeerKart listings.
                         </p>
                       </div>
                     </div>
@@ -604,7 +608,7 @@ function SellProduct() {
                         <div className="flex items-center justify-between gap-3">
                           <div>
                             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                              CampusMart AI Estimate
+                              PeerKart AI Estimate
                             </p>
 
                             <p className="mt-1 text-2xl font-bold text-slate-900">
@@ -686,7 +690,7 @@ function SellProduct() {
                         {aiPrediction.similarProductsCount > 0 && (
                           <p className="mt-3 text-xs text-slate-400">
                             Based on {aiPrediction.similarProductsCount} similar
-                            CampusMart listings.
+                            PeerKart listings.
                           </p>
                         )}
                       </div>

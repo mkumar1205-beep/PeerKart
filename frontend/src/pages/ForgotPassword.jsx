@@ -170,7 +170,7 @@ function ForgotPassword() {
                 "Enter the 6-digit OTP sent to your email address."}
 
               {step === 3 &&
-                "Create a new secure password for your CampusMart account."}
+                "Create a new secure password for your PeerKart account."}
             </p>
           </div>
 

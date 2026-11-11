@@ -125,7 +125,10 @@ function ProductDetails() {
   ========================================================= */
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("campusmart_theme") || "light";
+    const savedTheme =
+      localStorage.getItem("peerkart_theme") ||
+      localStorage.getItem("campusmart_theme") ||
+      "light";
 
     document.documentElement.classList.remove("light", "dark");
 
@@ -165,7 +168,7 @@ function ProductDetails() {
 
   useEffect(() => {
     const checkWishlist = async () => {
-      const token = localStorage.getItem("campusmart_token");
+      const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
       if (!token || !id) {
         return;
@@ -190,7 +193,7 @@ function ProductDetails() {
   const handleAddToCart = async () => {
     if (!product) return;
 
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -227,7 +230,7 @@ function ProductDetails() {
   const handleChatWithSeller = async () => {
     if (!product) return;
 
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -265,7 +268,7 @@ function ProductDetails() {
   const handleWishlist = async () => {
     if (!product) return;
 
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -312,7 +315,7 @@ function ProductDetails() {
   ========================================================= */
 
   const openReportModal = () => {
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -391,7 +394,7 @@ function ProductDetails() {
   ========================================================= */
 
   const openExchangeModal = async () => {
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -554,7 +557,7 @@ function ProductDetails() {
   ========================================================= */
 
   const handleRentNow = async () => {
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -635,7 +638,7 @@ function ProductDetails() {
   const handleBuyRentAdvice = async (event) => {
     event.preventDefault();
 
-    const token = localStorage.getItem("campusmart_token");
+    const token = (localStorage.getItem("peerkart_token") || localStorage.getItem("campusmart_token"));
 
     if (!token) {
       navigate("/login", {
@@ -1340,7 +1343,7 @@ function ProductDetails() {
               </h2>
 
               <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300">
-                CampusMart AI will analyze product condition, pricing, seller
+                PeerKart AI will analyze product condition, pricing, seller
                 history and marketplace trends to help students make safer
                 buying decisions.
               </p>
@@ -1591,7 +1594,7 @@ function ProductDetails() {
                   </h2>
 
                   <p className="mt-1 text-sm leading-5 text-slate-500 dark:text-slate-400">
-                    Help keep CampusMart safe for students.
+                    Help keep PeerKart safe for students.
                   </p>
                 </div>
               </div>
@@ -1727,7 +1730,7 @@ function ProductDetails() {
 
                   <p className="text-xs leading-5 text-amber-800 dark:text-amber-300">
                     Submit a report only when you believe the listing violates
-                    CampusMart rules or creates a safety concern.
+                    PeerKart rules or creates a safety concern.
                   </p>
                 </div>
               </div>

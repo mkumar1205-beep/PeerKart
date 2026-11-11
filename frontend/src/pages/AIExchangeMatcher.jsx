@@ -27,7 +27,9 @@ function AIExchangeMatcher() {
 
   useEffect(() => {
     const loadMyExchangeProducts = async () => {
-      const token = localStorage.getItem("campusmart_token");
+      const token =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
       if (!token) {
         navigate("/login", {
@@ -124,7 +126,7 @@ function AIExchangeMatcher() {
           </div>
 
           <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-indigo-100">
-            CampusMart AI
+            PeerKart AI
           </p>
 
           <h1 className="text-3xl font-bold sm:text-4xl">

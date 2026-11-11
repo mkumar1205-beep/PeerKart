@@ -15,7 +15,9 @@ import {
   Package,
   Search,
   ShieldCheck,
+  ShoppingBag,
   ShoppingCart,
+  Sparkles,
   Sun,
   User,
   Users,
@@ -43,7 +45,11 @@ function Navbar() {
   const [unreadNotifications, setUnreadNotifications] = useState(0);
 
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("campusmart_theme") || "light";
+    return (
+      localStorage.getItem("peerkart_theme") ||
+      localStorage.getItem("campusmart_theme") ||
+      "light"
+    );
   });
 
   const profileRef = useRef(null);
@@ -53,13 +59,21 @@ function Navbar() {
      SESSION
   ========================================================= */
 
-  const studentToken = localStorage.getItem("campusmart_token");
+  const studentToken =
+    localStorage.getItem("peerkart_token") ||
+    localStorage.getItem("campusmart_token");
 
-  const adminToken = localStorage.getItem("campusmart_admin_token");
+  const adminToken =
+    localStorage.getItem("peerkart_admin_token") ||
+    localStorage.getItem("campusmart_admin_token");
 
-  const studentUserRaw = localStorage.getItem("campusmart_user");
+  const studentUserRaw =
+    localStorage.getItem("peerkart_user") ||
+    localStorage.getItem("campusmart_user");
 
-  const adminUserRaw = localStorage.getItem("campusmart_admin_user");
+  const adminUserRaw =
+    localStorage.getItem("peerkart_admin_user") ||
+    localStorage.getItem("campusmart_admin_user");
 
   let studentUser = null;
   let adminUser = null;
@@ -97,7 +111,7 @@ function Navbar() {
 
     root.classList.add(theme);
 
-    localStorage.setItem("campusmart_theme", theme);
+    localStorage.setItem("peerkart_theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -145,11 +159,17 @@ function Navbar() {
 
   const loadNotifications = async () => {
     try {
-      const currentAdminToken = localStorage.getItem("campusmart_admin_token");
+      const currentAdminToken =
+        localStorage.getItem("peerkart_admin_token") ||
+        localStorage.getItem("campusmart_admin_token");
 
-      const currentStudentToken = localStorage.getItem("campusmart_token");
+      const currentStudentToken =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
-      const currentAdminUserRaw = localStorage.getItem("campusmart_admin_user");
+      const currentAdminUserRaw =
+        localStorage.getItem("peerkart_admin_user") ||
+        localStorage.getItem("campusmart_admin_user");
 
       let currentAdminUser = null;
 
@@ -284,12 +304,16 @@ function Navbar() {
   ========================================================= */
 
   const handleLogout = () => {
+    localStorage.removeItem("peerkart_token");
     localStorage.removeItem("campusmart_token");
 
+    localStorage.removeItem("peerkart_user");
     localStorage.removeItem("campusmart_user");
 
+    localStorage.removeItem("peerkart_admin_token");
     localStorage.removeItem("campusmart_admin_token");
 
+    localStorage.removeItem("peerkart_admin_user");
     localStorage.removeItem("campusmart_admin_user");
 
     setNotifications([]);
@@ -309,16 +333,16 @@ function Navbar() {
   ========================================================= */
 
   const navLinkClass = ({ isActive }) =>
-    `relative whitespace-nowrap px-1 py-2 text-sm font-semibold transition-colors ${
+    `relative whitespace-nowrap rounded-xl px-3 py-2 text-sm font-semibold transition-all duration-200 ${
       isActive ?
-        "text-blue-600 dark:text-blue-400"
-      : "text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+        "bg-blue-50/90 text-blue-600 font-bold dark:bg-blue-500/15 dark:text-blue-400 shadow-sm"
+      : "text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/80 dark:hover:text-white"
     }`;
 
   const mobileLinkClass = ({ isActive }) =>
     `flex items-center rounded-xl px-4 py-3 text-sm font-semibold transition ${
       isActive ?
-        "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400"
+        "bg-blue-50 text-blue-600 font-bold dark:bg-blue-500/10 dark:text-blue-400"
       : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
     }`;
 
@@ -328,42 +352,53 @@ function Navbar() {
   const initial = displayName.charAt(0).toUpperCase();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/95">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-2xl dark:border-slate-800 dark:bg-slate-950/90">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         {/* ===================================================
             MAIN BAR
         =================================================== */}
 
-        <div className="flex min-h-[76px] items-center gap-4 lg:gap-6">
+        <div className="flex min-h-[72px] items-center gap-4 lg:gap-6">
           {/* BRAND */}
 
           <Link
             to="/"
-            className="group flex shrink-0 items-center"
+            className="group flex shrink-0 items-center gap-3 py-1.5"
             onClick={() => setIsMenuOpen(false)}
           >
-            <img
-              src="/image2.png"
-              alt="CampusMart Logo"
-              className="h-[73px] w-auto max-w-[250px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-            />
+            <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-500/40">
+              <ShoppingBag size={21} className="transition-transform group-hover:-rotate-6" />
+              <div className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 ring-2 ring-white dark:ring-slate-950">
+                <Sparkles size={9} className="text-slate-950" />
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="text-2xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white">
+                  Peer<span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">Kart</span>
+                </span>
+                <span className="rounded-md border border-cyan-400/30 bg-cyan-400/10 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+                  AI
+                </span>
+              </div>
+              <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400 dark:text-slate-500">
+                Campus Marketplace
+              </span>
+            </div>
           </Link>
 
           {/* =================================================
               DESKTOP NAV
           ================================================== */}
 
-          <nav className="hidden shrink-0 items-center gap-5 xl:flex">
-            {/* <NavLink to="/" className={navLinkClass}>
-              Home
-            </NavLink> */}
-
+          <nav className="hidden shrink-0 items-center gap-2 xl:flex">
             <NavLink to="/marketplace" className={navLinkClass}>
               Marketplace
             </NavLink>
-            <Link to="/about" className="transition hover:text-cyan-600">
-              <b> About Us</b>
-            </Link>
+            <NavLink to="/about" className={navLinkClass}>
+              About Us
+            </NavLink>
 
             {/* =================================================
                 ADMIN
@@ -579,7 +614,7 @@ function Navbar() {
                             </p>
 
                             <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
-                              Your CampusMart updates will appear here.
+                              Your PeerKart updates will appear here.
                             </p>
                           </div>
                         : notifications.slice(0, 6).map((notification) => (
@@ -656,26 +691,27 @@ function Navbar() {
               <div className="ml-1 hidden items-center gap-2 sm:flex">
                 <Link
                   to="/login"
-                  className="inline-flex h-10 items-center gap-2 rounded-xl px-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="inline-flex h-10 items-center gap-2 rounded-xl px-4 text-sm font-bold text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
                 >
-                  <LogIn size={17} />
+                  <LogIn size={16} />
                   Sign in
                 </Link>
 
                 <Link
                   to="/register"
-                  className="inline-flex h-10 items-center gap-2 rounded-xl bg-blue-600 px-4 text-sm font-bold text-white shadow-lg shadow-blue-100 transition hover:bg-blue-700 dark:shadow-blue-950/30"
+                  className="inline-flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 px-4 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition duration-200 hover:from-blue-700 hover:to-indigo-700 hover:shadow-blue-500/40"
                 >
-                  Create account
+                  <Sparkles size={15} />
+                  Get Started
                 </Link>
 
                 <Link
                   to="/admin/login"
                   className="admin-login-nav-link"
-                  title="Admin Login"
+                  title="Admin Portal"
                 >
                   <ShieldCheck size={16} />
-                  Admin Login
+                  Admin
                 </Link>
               </div>
             )}
@@ -743,7 +779,7 @@ function Navbar() {
                           </p>
 
                           <p className="truncate text-xs text-slate-500 dark:text-slate-400">
-                            {user?.email || "CampusMart account"}
+                            {user?.email || "PeerKart account"}
                           </p>
                         </div>
                       </div>

@@ -266,7 +266,7 @@ function AdminReports() {
                 </h1>
 
                 <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                  Review and manage CampusMart safety reports.
+                  Review and manage PeerKart safety reports.
                 </p>
               </div>
             </div>

@@ -33,7 +33,9 @@ function MyListings() {
       setLoading(true);
       setError("");
 
-      const token = localStorage.getItem("campusmart_token");
+      const token =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
       if (!token) {
         navigate("/login");
@@ -47,7 +49,9 @@ function MyListings() {
       console.error("My Listings Error:", error);
 
       if (error.response?.status === 401) {
+        localStorage.removeItem("peerkart_token");
         localStorage.removeItem("campusmart_token");
+        localStorage.removeItem("peerkart_user");
         localStorage.removeItem("campusmart_user");
 
         navigate("/login");
@@ -122,7 +126,7 @@ function MyListings() {
                   </h1>
 
                   <p className="mt-1 text-sm text-slate-500">
-                    Manage the products you have listed on CampusMart.
+                    Manage the products you have listed on PeerKart.
                   </p>
                 </div>
               </div>

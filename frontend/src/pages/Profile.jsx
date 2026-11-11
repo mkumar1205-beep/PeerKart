@@ -63,9 +63,13 @@ function Profile() {
       // GET BOTH TOKENS
       // --------------------------------------------------------
 
-      const studentToken = localStorage.getItem("campusmart_token");
+      const studentToken =
+        localStorage.getItem("peerkart_token") ||
+        localStorage.getItem("campusmart_token");
 
-      const adminToken = localStorage.getItem("campusmart_admin_token");
+      const adminToken =
+        localStorage.getItem("peerkart_admin_token") ||
+        localStorage.getItem("campusmart_admin_token");
 
       // --------------------------------------------------------
       // SELECT CORRECT TOKEN
@@ -133,10 +137,15 @@ function Profile() {
 
         if (isAdminProfile) {
           localStorage.setItem(
+            "peerkart_admin_user",
+            JSON.stringify(currentUser),
+          );
+          localStorage.setItem(
             "campusmart_admin_user",
             JSON.stringify(currentUser),
           );
         } else {
+          localStorage.setItem("peerkart_user", JSON.stringify(currentUser));
           localStorage.setItem("campusmart_user", JSON.stringify(currentUser));
         }
       } catch (error) {
@@ -147,12 +156,16 @@ function Profile() {
         // ======================================================
 
         if (isAdminProfile) {
+          localStorage.removeItem("peerkart_admin_token");
           localStorage.removeItem("campusmart_admin_token");
 
+          localStorage.removeItem("peerkart_admin_user");
           localStorage.removeItem("campusmart_admin_user");
         } else {
+          localStorage.removeItem("peerkart_token");
           localStorage.removeItem("campusmart_token");
 
+          localStorage.removeItem("peerkart_user");
           localStorage.removeItem("campusmart_user");
         }
 
@@ -179,16 +192,20 @@ function Profile() {
 
   const handleLogout = () => {
     if (isAdminProfile) {
+      localStorage.removeItem("peerkart_admin_token");
       localStorage.removeItem("campusmart_admin_token");
 
+      localStorage.removeItem("peerkart_admin_user");
       localStorage.removeItem("campusmart_admin_user");
 
       navigate("/admin/login", {
         replace: true,
       });
     } else {
+      localStorage.removeItem("peerkart_token");
       localStorage.removeItem("campusmart_token");
 
+      localStorage.removeItem("peerkart_user");
       localStorage.removeItem("campusmart_user");
 
       navigate("/login", {
@@ -312,7 +329,7 @@ function Profile() {
   const adminActionItems = [
     {
       title: "Admin Dashboard",
-      description: "Monitor CampusMart platform activity.",
+      description: "Monitor PeerKart platform activity.",
       icon: ShieldCheck,
       to: "/admin/dashboard",
     },
@@ -362,7 +379,7 @@ function Profile() {
             </h2>
 
             <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-              Securely loading your CampusMart account.
+              Securely loading your PeerKart account.
             </p>
           </div>
         </div>
@@ -435,7 +452,7 @@ function Profile() {
 
               <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400">
                 {isAdminProfile ?
-                  "Manage your administrator profile and CampusMart platform tools from one place."
+                  "Manage your administrator profile and PeerKart platform tools from one place."
                 : "Manage your student identity, marketplace activity, exchanges, rentals and account settings from one place."
                 }
               </p>
@@ -471,8 +488,8 @@ function Profile() {
                   />
 
                   {isAdminProfile ?
-                    "CampusMart Administrator"
-                  : "CampusMart AI Member"}
+                    "PeerKart Administrator"
+                  : "PeerKart AI Member"}
                 </div>
 
                 {user.isVerified ?
@@ -522,7 +539,7 @@ function Profile() {
 
                     <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
                       {isAdminProfile ?
-                        "CampusMart Administrator"
+                        "PeerKart Administrator"
                       : "Student Member"}
                     </p>
 
@@ -724,7 +741,7 @@ function Profile() {
 
                   <p className="mt-1 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
                     {isAdminProfile ?
-                      "Access the main CampusMart administration modules."
+                      "Access the main PeerKart administration modules."
                     : "Manage buying, selling, exchanging and renting from one place."
                     }
                   </p>
@@ -838,7 +855,7 @@ function Profile() {
                 <StatusCard
                   icon={User}
                   title="Account Type"
-                  description="Your CampusMart role"
+                  description="Your PeerKart role"
                   status={user.role || "student"}
                   statusClass="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200"
                   iconClass="bg-violet-50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400"
@@ -862,7 +879,7 @@ function Profile() {
                 </h3>
 
                 <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                  Your CampusMart session is protected with authenticated access
+                  Your PeerKart session is protected with authenticated access
                   and secure account handling.
                 </p>
 
@@ -880,7 +897,7 @@ function Profile() {
 
               <h3 className="mt-5 text-xl font-black text-slate-950 dark:text-white">
                 {isAdminProfile ?
-                  "CampusMart Administration"
+                  "PeerKart Administration"
                 : "Built for campus communities"}
               </h3>
 
@@ -1011,7 +1028,7 @@ function Profile() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-400 dark:border-slate-800 dark:text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>CampusMart AI · Student-to-Student Marketplace</p>
+          <p>PeerKart · Student-to-Student Marketplace</p>
 
           <p className="inline-flex items-center gap-1.5">
             <ShieldCheck size={13} />

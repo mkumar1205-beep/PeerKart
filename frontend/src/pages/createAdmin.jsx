@@ -42,7 +42,7 @@ const createAdmin = async () => {
       console.log("Existing account converted to admin successfully.");
     } else {
       admin = await User.create({
-        name: "CampusMart Admin",
+        name: "PeerKart Admin",
         email: ADMIN_EMAIL,
         studentId: "ADMIN001",
         password: hashedPassword,
@@ -50,7 +50,7 @@ const createAdmin = async () => {
         role: "admin",
         isVerified: true,
         location: "Kolkata",
-        bio: "CampusMart platform administrator.",
+        bio: "PeerKart platform administrator.",
       });
 
       console.log("Admin account created successfully.");

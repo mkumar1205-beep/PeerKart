@@ -31,7 +31,10 @@ function AdminLogin() {
   // ========================================================
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("campusmart_theme") || "light";
+    const savedTheme =
+      localStorage.getItem("peerkart_theme") ||
+      localStorage.getItem("campusmart_theme") ||
+      "light";
 
     document.documentElement.classList.remove("light", "dark");
 
@@ -82,16 +85,20 @@ function AdminLogin() {
       // CLEAR STUDENT SESSION
       // ====================================================
 
+      localStorage.removeItem("peerkart_token");
       localStorage.removeItem("campusmart_token");
 
+      localStorage.removeItem("peerkart_user");
       localStorage.removeItem("campusmart_user");
 
       // ====================================================
       // SAVE ADMIN SESSION
       // ====================================================
 
+      localStorage.setItem("peerkart_admin_token", token);
       localStorage.setItem("campusmart_admin_token", token);
 
+      localStorage.setItem("peerkart_admin_user", JSON.stringify(loggedUser));
       localStorage.setItem("campusmart_admin_user", JSON.stringify(loggedUser));
 
       // ====================================================
@@ -129,11 +136,11 @@ function AdminLogin() {
               </p>
 
               <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-950 dark:text-white">
-                CampusMart Admin
+                PeerKart Admin
               </h1>
 
               <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                Sign in to manage the CampusMart platform.
+                Sign in to manage the PeerKart platform.
               </p>
             </div>
           </div>
@@ -253,7 +260,7 @@ function AdminLogin() {
           </div>
 
           <p className="mt-5 text-center text-xs text-slate-400">
-            Authorized CampusMart administrators only.
+            Authorized PeerKart administrators only.
           </p>
         </div>
       </div>
