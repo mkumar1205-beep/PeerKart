@@ -10,14 +10,7 @@
 **Your Campus. Your Marketplace.**
 
 Buy · Sell · Rent · Exchange — all in one campus-focused platform.
-
-[![Live App](https://img.shields.io/badge/🚀_Live_App-Open_PeerKart-00C9FF?style=for-the-badge)](https://campusmart-ai.onrender.com/)
-[![Backend](https://img.shields.io/badge/Backend-Render-7C3AED?style=for-the-badge)](https://campusmart-vv4s.onrender.com/)
-![MERN](https://img.shields.io/badge/Stack-MERN-16A34A?style=for-the-badge)
-![AI](https://img.shields.io/badge/AI-Assisted-EC4899?style=for-the-badge)
-
 </div>
-----
 
 ## 🌟 About the Project
 
