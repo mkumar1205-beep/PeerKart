@@ -1,9 +1,9 @@
  
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:07111F,45:123B5D,100:00D4FF&height=220&section=header&text=CampusMart%20AI&fontSize=58&fontColor=FFFFFF&fontAlignY=38&desc=Your%20Campus.%20Your%20Marketplace.&descAlignY=58&descSize=19&animation=fadeIn" alt="CampusMart AI Header"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:07111F,45:123B5D,100:00D4FF&height=220&section=header&text=PeerKart&fontSize=58&fontColor=FFFFFF&fontAlignY=38&desc=Your%20Campus.%20Your%20Marketplace.&descAlignY=58&descSize=19&animation=fadeIn" alt="PeerKart Header"/>
 
-# 🎓 CampusMart AI
+# 🎓 PeerKart
 
 ### AI-Powered Student-to-Student E-Commerce Marketplace
 
@@ -11,7 +11,7 @@
 
 Buy · Sell · Rent · Exchange — all in one campus-focused platform.
 
-[![Live App](https://img.shields.io/badge/🚀_Live_App-Open_CampusMart-00C9FF?style=for-the-badge)](https://campusmart-ai.onrender.com/)
+[![Live App](https://img.shields.io/badge/🚀_Live_App-Open_PeerKart-00C9FF?style=for-the-badge)](https://campusmart-ai.onrender.com/)
 [![Backend](https://img.shields.io/badge/Backend-Render-7C3AED?style=for-the-badge)](https://campusmart-vv4s.onrender.com/)
 ![MERN](https://img.shields.io/badge/Stack-MERN-16A34A?style=for-the-badge)
 ![AI](https://img.shields.io/badge/AI-Assisted-EC4899?style=for-the-badge)
@@ -25,7 +25,7 @@ Buy · Sell · Rent · Exchange — all in one campus-focused platform.
 
 ## 🌟 About the Project
 
-**CampusMart AI** is a student-focused e-commerce marketplace designed to make campus shopping easier, smarter, and more accessible.
+**PeerKart** is a student-focused e-commerce marketplace designed to make campus shopping easier, smarter, and more accessible.
 
 Students can explore listings and use marketplace workflows to buy, sell, rent, or exchange useful products. The project combines a modern React frontend, a Node.js and Express backend, and MongoDB, with AI-assisted tools intended to help users make more informed marketplace decisions.
 
@@ -184,7 +184,7 @@ Recommended structure:
 
 
 ```text
-CampusMart/
+PeerKart/
 ├── docs/
 │   └── screenshots/
 │       ├── home.png
@@ -198,8 +198,8 @@ Once you have saved screenshots, display them like this:
 
 ```html
 <div align="center">
-  <img src="docs/screenshots/home.png" width="85%" alt="CampusMart AI Home Page"/>
-  <p><em>CampusMart AI — Home Page</em></p>
+  <img src="docs/screenshots/home.png" width="85%" alt="PeerKart Home Page"/>
+  <p><em>PeerKart — Home Page</em></p>
 </div>
 ```
 
@@ -222,7 +222,7 @@ Replace the placeholder with your actual GitHub repository URL.
 
 ```bash
 git clone YOUR_GITHUB_REPOSITORY_URL
-cd CampusMart
+cd PeerKart
 ```
 
 ### 3. Set Up the Frontend
@@ -310,7 +310,7 @@ dist/
 The following is a high-level example. Adjust it to match the actual repository.
 
 ```text
-CampusMart/
+PeerKart/
 ├── frontend/
 │   ├── public/
 │   │   └── images/
@@ -385,7 +385,7 @@ Contributions and suggestions are welcome.
 
 ## 🛡️ Responsible Use
 
-CampusMart AI is a student project. Users should independently verify product details, seller information, prices, and exchange terms before making decisions. AI-assisted suggestions are guidance—not a guarantee of product quality, fair pricing, safety, or successful exchange.
+PeerKart is a student project. Users should independently verify product details, seller information, prices, and exchange terms before making decisions. AI-assisted suggestions are guidance—not a guarantee of product quality, fair pricing, safety, or successful exchange.
 
 ## 📜 License
 
@@ -397,9 +397,9 @@ No license has been specified in this README. If you plan to distribute the proj
 
 ### 💙 Built for Student Communities
 
-**CampusMart AI — Your Campus. Your Marketplace.**
+**PeerKart — Your Campus. Your Marketplace.**
 
-[![Explore CampusMart](https://img.shields.io/badge/EXPLORE_CAMPUSMART-00C9FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://campusmart-ai.onrender.com/)
+[![Explore PeerKart](https://img.shields.io/badge/EXPLORE_PEERKART-00C9FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://campusmart-ai.onrender.com/)
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,55:123B5D,100:07111F&height=120&section=footer" alt="Animated footer"/>
 
