@@ -16,12 +16,8 @@ Buy · Sell · Rent · Exchange — all in one campus-focused platform.
 ![MERN](https://img.shields.io/badge/Stack-MERN-16A34A?style=for-the-badge)
 ![AI](https://img.shields.io/badge/AI-Assisted-EC4899?style=for-the-badge)
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&pause=1000&color=00D4FF&center=true&vCenter=true&width=700&lines=Find+what+you+need+on+campus.;Give+unused+items+a+second+life.;Buy+less.+Share+more.+Waste+less.;Your+campus.+Your+marketplace." alt="Animated typing text"/>
-
 </div>
-
----
-<img width="1312" height="737" alt="image" src="https://github.com/user-attachments/assets/46ba0af2-38b0-4eda-9c23-fd9e22ff30ff" />
+----
 
 ## 🌟 About the Project
 
@@ -36,16 +32,6 @@ Students can explore listings and use marketplace workflows to buy, sell, rent, 
 - Help students discover useful products.
 - Create a simple, convenient marketplace experience.
 - Explore practical applications of AI in e-commerce.
-
-## 🔗 Live Deployment
-
-| Service | Link |
-|---|---|
-| 🚀 Frontend Application | https://campusmart-ai.onrender.com/ |
-| ⚙️ Backend Service | https://campusmart-vv4s.onrender.com/ |
-| 🔌 API Base URL | https://campusmart-vv4s.onrender.com/api |
-
-> **Note:** Render services may take some time to respond after a period of inactivity.
 
 ## ✨ Key Features
 
@@ -173,14 +159,6 @@ Students can explore listings and use marketplace workflows to buy, sell, rent, 
 | Media uploads | Cloudinary where configured |
 | Deployment | Render |
 | Version control | Git and GitHub |
-
-## 🖼️ Screenshots
-
-
-Recommended structure:
-
-<img width="1312" height="737" alt="image" src="https://github.com/user-attachments/assets/875ece85-47e9-45b0-9dfd-09823a7c5694" />
-
 
 
 ```text
@@ -359,48 +337,4 @@ PeerKart/
 - [ ] Document API endpoints.
 - [ ] Add real application screenshots.
 - [ ] Prepare a short project demo.
-
-## 👥 Our Team
-
-Update the table with the real names, roles, photos, and profile links of your group members.
-
-| Team Member | Role | Profile |
-|---|---|---|
-| **Jeet Mondal** | Team Leader · Full Stack Developer | [GitHub](https://github.com/JEETJM) |
-| **Annesha Mondal** | Frontend Developer |  [GitHub](https://github.com/annesha2) |
-| **Subarna Mondal** | Backend Developer | [GitHub](https://github.com/Subarna5566) |
-| **Imran Sk** | AI/ML & Testing | Add profile link |
-
-For the About page, place approved team photos in `frontend/public/images/team/` and update their paths in `frontend/src/pages/About.jsx`.
-
-## 🤝 Contributing
-
-Contributions and suggestions are welcome.
-
-1. Create a feature branch or fork the repository.
-2. Make focused, clearly explained changes.
-3. Test the affected frontend and backend flows.
-4. Never commit private credentials.
-5. Submit a pull request with a summary and testing notes.
-
-## 🛡️ Responsible Use
-
-PeerKart is a student project. Users should independently verify product details, seller information, prices, and exchange terms before making decisions. AI-assisted suggestions are guidance—not a guarantee of product quality, fair pricing, safety, or successful exchange.
-
-## 📜 License
-
-No license has been specified in this README. If you plan to distribute the project as open source, choose a license and add a `LICENSE` file. Without a license, others do not automatically receive permission to reuse, modify, or distribute the code.
-
----
-
-<div align="center">
-
-### 💙 Built for Student Communities
-
-**PeerKart — Your Campus. Your Marketplace.**
-
-[![Explore PeerKart](https://img.shields.io/badge/EXPLORE_PEERKART-00C9FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://campusmart-ai.onrender.com/)
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,55:123B5D,100:07111F&height=120&section=footer" alt="Animated footer"/>
-
-</div>
+<div>
