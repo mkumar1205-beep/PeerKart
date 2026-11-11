@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Prevent light/dark mode flash -->
+  <script>
+    (() => {
+      const theme =
+        localStorage.getItem("campusmart_theme") || "light";
+
+      document.documentElement.classList.add(theme);
+    })();
+  </script>
+
+  <link rel="icon" href="image00.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    
+    𝖢𝗮𝗺𝗽𝘂𝘀𝑀𝑎𝐫𝐭 ᴀɪ | Our Campus. Your Marketplace.
+  </title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
