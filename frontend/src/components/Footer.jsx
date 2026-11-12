@@ -135,7 +135,7 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/JEETJM/CampusMart"
+                  href="https://github.com/mkumar1205-beep/PeerKart"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 transition hover:text-blue-600 dark:hover:text-blue-400"
